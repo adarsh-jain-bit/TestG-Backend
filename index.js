@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 dotenv.config();
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 app.use(cors());
 // if i wanna use req.body then i have to use app.use(express.json());middleware
 app.use(express.json());
