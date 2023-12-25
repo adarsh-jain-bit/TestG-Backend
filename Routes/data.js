@@ -76,6 +76,8 @@ dataRouter.get("/jobRolesData/:jobRole", (req, res) => {
     const dataType = req.params.jobRole;
     if (data[dataType]) {
       res.json(data[dataType]);
+    } else if (dataType == "All") {
+      res.json([...data.Frontend, ...data.Backend]);
     } else {
       res.status(404).json({ error: "Data not found" });
     }
